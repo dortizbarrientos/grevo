@@ -6,7 +6,7 @@ Authors@R: c(
     person(given = "Daniel", family = "Ortiz-Barrientos", role = c("aut", "cre"),
            email = "daniel.ortizbarrientos@uq.edu.au"),
     person(given = "ChatGPT", family = "Assistant", role = "ctb")
-)
+    )
 Description: grevo — Genetic Response & Evolvability. Tools for response to selection and evolvability from the G-matrix.
     affine-invariant distances between G-matrices, and related alignment diagnostics for quantitative traits.
     Includes a small toy dataset and a vignette-based workflow.
