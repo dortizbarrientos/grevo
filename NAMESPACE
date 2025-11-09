@@ -1,0 +1,3 @@
+exportPattern("^[^\.]")
+importFrom(stats, cov, rnorm)
+importFrom(utils, read.csv)

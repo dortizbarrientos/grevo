@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: If you use this package, please cite it as below.
+title: grevo — Genetic Response & Evolvability
+version: 0.1.0
+authors:
+  - family-names: Ortiz-Barrientos
+    given-names: Daniel
+  - family-names: Assistant
+    given-names: ChatGPT
+license: MIT
+type: software
+repository-code: https://github.com/USERNAME/grevo
+abstract: >
+  Tools for response to selection and evolvability from the G-matrix.
+  Tools for Lande response, directional heritability, evolvability, alignment diagnostics,
+  and affine-invariant geometry on SPD genetic covariance matrices.

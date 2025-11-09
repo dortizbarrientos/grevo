@@ -1,0 +1,57 @@
+---
+title: "Getting started with grevo"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\\VignetteIndexEntry{Getting started with grevo}
+  %\\VignetteEngine{knitr::rmarkdown}
+  %\\VignetteEncoding{UTF-8}
+---
+
+```r
+# install.packages("devtools")
+# devtools::install("grevo")  # from the unzipped folder
+library(grevo)
+toy <- load_toy()
+
+str(toy$pheno)
+toy$G; toy$E; toy$P; toy$beta
+```
+
+## Directional statistics along a chosen vector
+
+```r
+s <- c(1, 0, -1)
+e <- evolvability(toy$G, s)
+h2 <- directional_heritability(toy$G, toy$P, s)
+cval <- conditional_evolvability(toy$G, s)
+list(e = e, h2 = h2, c = cval)
+```
+
+## Lande's response and alignment
+
+```r
+res <- response_stats(toy$G, toy$beta, toy$P)
+res
+
+align_to_eigen(toy$G, toy$beta, k = 3)
+```
+
+## Visualising a 2-trait evolvability curve
+
+```r
+G2 <- toy$G[1:2, 1:2]
+plot_evolvability_circle2D(G2, n = 360, scale = TRUE)
+```
+
+## Comparing G-matrices via affine-invariant distance
+
+```r
+# Move a little along the geodesic from G to a perturbed version
+G2 <- toy$G + diag(c(0.1, -0.05, 0.02))
+G2 <- ensure_spd(G2)
+d <- affine_dist(toy$G, G2)
+Gmid <- geodesic_interpolate(toy$G, G2, t = 0.5)
+list(distance = d, mid = Gmid)
+```
